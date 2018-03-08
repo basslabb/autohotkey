@@ -3,6 +3,27 @@
 SendMode Input  ; Recommended for new scripts due to its superior speed and reliability.
 SetWorkingDir %A_ScriptDir%  ; Ensures a consistent starting directory.
 
+;Get title of active window
+!^T::
+{
+	DetectHiddenWindows, On
+	WinGetTitle, Title, A
+	MsgBox, The active window is "%Title%".
+	return
+}
+
+;--------------------------------- Spotify ----------------------------------
+
+;"CTRL + ALT + SPACE for pause/play
+!^Space::Media_Play_Pause
+
+;"CTRL + ALT + Page down" for next song
+!^PgDn::Media_Next
+
+;"CTRL + ALT + Page up" for previous song
+!^PgUp::Media_Prev
+
+
 ; -------------------------------- Volume------------------------------------
 
 ;"CTRL + ALT + NUMPAD8" for Volume up
